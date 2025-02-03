@@ -41,10 +41,12 @@ const Navbar = () => {
       <div className="container mx-auto">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <img src="/vite.svg" className="w-8" alt="logo" />
-              <span className="text-xl font-bold"> @kaushu42</span>
-            </div>
+            <Link to="/">
+              <div className="flex items-center gap-2">
+                <img src="/vite.svg" className="w-8" alt="logo" />
+                <span className="text-xl font-bold"> @kaushu42</span>
+              </div>
+            </Link>
             <div className="flex items-center">
               <Link to="/">
                 <a
