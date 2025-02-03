@@ -1,8 +1,12 @@
 import HeroSection from "./components/HeroSection";
-import "./App.css";
+import ThemeTogglebutton from "./components/ui/theme-toggle";
 
 function App() {
-  return <HeroSection />;
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }
 
 export default App;

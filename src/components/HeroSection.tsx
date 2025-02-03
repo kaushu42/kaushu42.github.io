@@ -9,12 +9,21 @@ export default function HeroSection() {
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tight text-balance sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground/70">
-                The best ViteJs <br />
-                Starter Template
+                @kaushu42
               </h1>
               <p className="text-muted-foreground  mx-auto">
-                Comes with Lucide, ShadCN UI, theme toggle too! Accelerate your
-                development process with this template.
+                Oh, did you land here by mistake? No worries, this is the best.
+              </p>
+              <p>
+                Enjoy this random face from{" "}
+                <a href="https://thispersondoesnotexist.com/">
+                  thispersondoesnotexist.com
+                </a>
+                {""}
+                <p>
+                  while I add some content. Refresh for a new face. Who knows,
+                  maybe you'll find your doppelganger here!
+                </p>
               </p>
             </div>
             <div className="flex gap-4 px-2">
@@ -27,7 +36,7 @@ export default function HeroSection() {
                 size={"lg"}
                 variant={"outline"}
               >
-                <a href="https://github.com/Xeven777/vite-shadcn-template">
+                <a href="https://github.com/kaushu42/kaushu42.github.io">
                   Github <GithubIcon size={20} className="ml-2" />
                 </a>
               </Button>
@@ -36,7 +45,7 @@ export default function HeroSection() {
           <img
             alt="Hero"
             className="mx-auto shadow-md overflow-hidden rounded-xl object-cover object-bottom sm:w-full lg:order-last"
-            src="https://assets.lummi.ai/assets/QmXkegPybPdekwo72iMg59aBtizgSXtBF1foXBMfqNdr4M?auto=format&w=1500"
+            src="https://thispersondoesnotexist.com/"
           />
         </div>
       </div>
