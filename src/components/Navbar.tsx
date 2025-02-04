@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             <Link to="/">
               <div className="flex items-center gap-2">
-                <img src="/vite.svg" className="w-8" alt="logo" />
+                <img src="/logo.svg" className="w-8" alt="logo" />
                 <span className="text-xl font-bold"> @kaushu42</span>
               </div>
             </Link>
