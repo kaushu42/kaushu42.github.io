@@ -120,18 +120,20 @@ const Navbar = () => {
               >
                 Contact
               </a>
-              <a
-                className={cn(
-                  "text-muted-foreground",
-                  navigationMenuTriggerStyle,
-                  buttonVariants({
-                    variant: "ghost",
-                  })
-                )}
-                href="#"
-              >
-                About Me
-              </a>
+              <Link to="/about-me">
+                <a
+                  className={cn(
+                    "text-muted-foreground",
+                    navigationMenuTriggerStyle,
+                    buttonVariants({
+                      variant: "ghost",
+                    })
+                  )}
+                  href="#"
+                >
+                  About Me
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
