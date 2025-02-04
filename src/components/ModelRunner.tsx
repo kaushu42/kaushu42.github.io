@@ -5,12 +5,16 @@ interface ModelRunnerProps {
   sliderValues: number[];
   targetWidth: number; // Custom width for scaling
   targetHeight: number; // Custom height for scaling
+  modelPath: string;
+  label?: number;
 }
 
 export default function ModelRunner({
   sliderValues,
   targetWidth,
   targetHeight,
+  modelPath,
+  label,
 }: ModelRunnerProps) {
   const [session, setSession] = useState<ort.InferenceSession | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -20,7 +24,7 @@ export default function ModelRunner({
     const loadModel = async () => {
       try {
         ort.env.wasm.wasmPaths = "/wasm/";
-        const modelSession = await ort.InferenceSession.create("/vae-11.onnx", {
+        const modelSession = await ort.InferenceSession.create(modelPath, {
           executionProviders: ["cpu"],
         });
 
@@ -45,9 +49,18 @@ export default function ModelRunner({
           Float32Array.from(sliderValues),
           [1, 16]
         );
-
+        const inputs: Record<string, ort.Tensor> = { input: inputTensor };
+        // Add label input if it's not null or undefined
+        if (label !== null && label !== undefined) {
+          const labelTensor = new ort.Tensor(
+            "int64",
+            BigInt64Array.from([BigInt(label)]),
+            [1]
+          );
+          inputs["label"] = labelTensor;
+        }
         // Run the model and get the output tensor
-        const outputMap = await session.run({ input: inputTensor });
+        const outputMap = await session.run(inputs);
         const outputData = outputMap["image"].data as Float32Array;
 
         // Render the image on the original canvas (28x28)
@@ -99,7 +112,7 @@ export default function ModelRunner({
     };
 
     runInference();
-  }, [session, sliderValues, targetWidth, targetHeight]);
+  }, [session, sliderValues, targetWidth, targetHeight, label]);
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg text-white">

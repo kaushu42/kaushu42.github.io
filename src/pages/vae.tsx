@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
-import ModelRunner from "./ModelRunner";
-interface ProjectProps {
+import ModelRunner from "../components/ModelRunner";
+interface VAEProps {
   title: string;
 }
-export default function Project({ title }: ProjectProps) {
+export default function VAE({ title }: VAEProps) {
   // Initialize state with 16 sliders set to 0
   const [sliderValues, setSliderValues] = useState(Array(16).fill(0));
 
@@ -47,6 +47,7 @@ export default function Project({ title }: ProjectProps) {
         sliderValues={sliderValues}
         targetWidth={300}
         targetHeight={300}
+        modelPath="/vae-11.onnx"
       />
     </div>
   );

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Folder } from "lucide-react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Project from "@/components/projects"; // Placeholder component for individual projects
+import VAE from "@/pages/vae"; // Placeholder component for individual projects
 
 const projects = [
   {
@@ -25,7 +25,7 @@ export function AppSidebar() {
       <Sidebar>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
+            <SidebarGroupLabel>VAEs</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {projects.map((project) => (
@@ -53,7 +53,7 @@ export function AppSidebar() {
             <Route
               key={project.title}
               path={project.url}
-              element={<Project title={project.title} />}
+              element={<VAE title={project.title} />}
             />
           ))}
         </Routes>

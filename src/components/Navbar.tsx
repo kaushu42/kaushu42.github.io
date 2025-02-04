@@ -26,12 +26,21 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
+import { link } from "fs";
 
 const subMenuItemsOne = [
   {
     title: "VAE Visualizer",
     description: "Visualize the latent dimensions of a VAE on MNIST",
     icon: <MessageCircleQuestion className="size-5 shrink-0" />,
+    link: "/vae",
+  },
+  {
+    title: "CVAE Visualizer",
+    description:
+      "VAE but with a condition to generate a given digit from MNIST",
+    icon: <MessageCircleQuestion className="size-5 shrink-0" />,
+    link: "/cvae",
   },
 ];
 
@@ -66,19 +75,19 @@ const Navbar = () => {
                 <NavigationMenuList>
                   <NavigationMenuItem className="text-muted-foreground">
                     <NavigationMenuTrigger>
-                      <span>Projects</span>
+                      <span>VAEs</span>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="w-80 p-3">
                         <NavigationMenuLink>
                           {subMenuItemsOne.map((item, idx) => (
-                            <Link to="/vae">
+                            <Link to={item.link} key={idx}>
                               <li key={idx}>
                                 <a
                                   className={cn(
                                     "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                   )}
-                                  href="/vae"
+                                  href="#"
                                 >
                                   {item.icon}
                                   <div>
