@@ -2,44 +2,41 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// JSON array for the card data
+const cardData = [
+  {
+    link: "/vae",
+    title: "VAE Demo",
+    description:
+      "This is a demo on image generation using VAE which generates MNIST-like images.",
+  },
+  {
+    link: "/cvae",
+    title: "Conditional VAE",
+    description:
+      "Specify the digit you want to generate and visualize the effect of each latent dimension on the output.",
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-4xl font-bold text-center mb-8">@kaushu42</h1>
 
-      <Card className="shadow-lg p-4 max-w-3xl mx-auto">
-        <CardHeader>
-          <CardTitle className="text-2xl font-semibold">VAE Demo</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            This is a demo on image generation using VAE which generates
-            MNIST-like images.
-          </p>
-          <div className="mt-6">
-            <Link to="/vae">
-              <Button variant="default" size="lg">
-                View Demo
-              </Button>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {[1, 2, 3].map((post, idx) => (
+        {cardData.map((card, idx) => (
           <Card key={idx} className="shadow-md">
             <CardHeader>
-              <CardTitle className="text-xl">
-                Under Maintainence {post}
-              </CardTitle>
+              <CardTitle className="text-xl">{card.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                This blog is under maintainence.
+                {card.description}
               </p>
               <div className="mt-4">
-                <Button variant="secondary">Read More</Button>
+                <Link to={card.link}>
+                  <Button variant="secondary">Go to Page</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
